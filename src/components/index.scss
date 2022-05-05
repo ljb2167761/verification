@@ -1,0 +1,52 @@
+.messageBox {
+  visibility: hidden;
+  position: fixed;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: -1;
+  &.show {
+    visibility: inherit;
+    top: 20px;
+    opacity: 1;
+    z-index: 99999;
+  }
+  div {
+    padding: 5px 20px;
+    min-width: 100px;
+    background: #fff;
+    box-shadow: 0 0 8px 3px #ebebeb;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: top 0.6s ease-in-out;
+    margin-bottom: 20px;
+    transform: translateY(-30px);
+    &.success,
+    &.error,
+    &.warning {
+      opacity: 1;
+    transform: translateY(0);
+    }
+    &.success {
+      color: #52c41a;
+    }
+    &.error {
+      color: #ff4d4f;
+    }
+    &.warning {
+      color: #faad14;
+    }
+  }
+}
+@keyframes messageAnimate {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
